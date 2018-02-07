@@ -59,7 +59,7 @@ func (p *Provisioner) AddPuppetAgentPath(o terraform.UIOutput, comm communicator
 }
 func (p *Provisioner) RunPuppetAgent(o terraform.UIOutput, comm communicator.Communicator) error {
 
-	err := p.runCommand(o, comm, fmt.Sprintf("'/opt/puppetlabs/bin/puppet resource host puppet ensure=present ip=%s ;/opt/puppetlabs/bin/puppet agent --enable; /opt/puppetlabs/bin/puppet agent -t'", p.MasterIP))
+	err := p.runCommand(o, comm, fmt.Sprintf("'/opt/puppetlabs/bin/puppet resource host puppet ensure=present ip=%s ;/opt/puppetlabs/bin/puppet agent --enable; /opt/puppetlabs/bin/puppet agent --onetime --no-daemonize --no-usecacheonfailure --no-splay'", p.MasterIP))
 	if err != nil {
 		return err
 	}
