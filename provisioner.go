@@ -92,11 +92,7 @@ func (p *Provisioner) runCommand(
 	if err := comm.Start(cmd); err != nil {
 		return fmt.Errorf("Error executing command %q: %v", cmd.Command, err)
 	}
-	cmd.Wait()
-	if cmd.ExitStatus != 0 {
-		err = fmt.Errorf(
-			"Command %q exited with non-zero exit status: %d", cmd.Command, cmd.ExitStatus)
-	}
+	err = cmd.Wait()
 
 	outW.Close()
 	errW.Close()
