@@ -15,7 +15,7 @@ type Provisioner struct {
 }
 
 const (
-	agent_url = "https://raw.githubusercontent.com/pyToshka/puppet-install-shell/master/install_puppet_agent.sh"
+	agent_url = "https://raw.githubusercontent.com/pyToshka/puppet-install-shell/master/install_puppet_5_agent.sh"
 	filepath  = "/tmp/install.sh"
 )
 
